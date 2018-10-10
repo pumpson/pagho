@@ -1,0 +1,162 @@
+/**
+ * 05-02　データからテーブルを生成する
+ */
+/* テーブル全体 */
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+/* 見出し行 */
+table th {
+	padding: 3px 10px;
+	border-bottom: #8ac2d0 5px solid;
+	border-left: #ddd 1px solid;
+	color: #8ac2d0;
+	text-align: left;
+	font-size: 0.8em;
+}
+/* データから生成する行 */
+table tr td {
+	padding: 15px 10px;	
+	border-bottom: #ddd 1px solid;
+}
+table tr td:nth-child(n+4) {
+	padding: 15px 2px;
+}
+table tr td:nth-child(4) {
+	padding-left: 10px;
+}
+table tr td:last-child {
+	padding-right: 10px;
+}
+table tr td:nth-child(1) {
+	font-weight: bold;
+}
+table tr td:nth-child(1),
+table tr td:nth-child(3) {
+	white-space: nowrap;
+}
+
+/**
+ * 05-04　データをフィルタする
+ */
+/* フィルタボタン全体のスタイル */
+.wrapper-filter-btn {
+	padding: 20px 0;
+	height: 40px;
+	position: relative;
+}
+ul.filter-btn {
+	position: absolute;
+	right: 0;
+}
+ul.filter-btn li {
+	float: left;
+	margin: 0 3px 0 0;
+}
+ul.filter-btn li a {
+	display: block;
+	padding: 10px 10px 10px 40px;
+	height: 20px;
+	background-position: 5px 50%;
+	background-repeat: no-repeat;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 0.8em;
+}
+/* 個別のスタイル */
+ul.filter-btn li.all a {
+/*	background-image: url(../images/all-white.png);*/
+	background-image: url(../images/all_icon.jpg);
+	background-color: #2491cf;
+}
+ul.filter-btn li.normal a {
+/*	background-image: url(../images/solar-white.png);*/
+	background-image: url(../images/normal-yes.png);
+	background-color: #e57b6d;
+}
+ul.filter-btn li.good a {
+/*	background-image: url(../images/kids-white.png);*/
+	background-image: url(../images/good-yes.png);
+	background-color: #f0a837;
+}
+ul.filter-btn li.verygood a {
+/*	background-image: url(../images/natural-white.png);*/
+	background-image: url(../images/verygood-yes.png);
+	background-color: #87b62e;
+}
+ul.filter-btn li.off a {
+	background-color: #ddd;
+}
+
+/**
+ * RESPONSIVE: スマートフォン向けウィンドウ幅600px以下
+ */
+@media screen and (max-width:600px) {
+	/* テーブル全体 */
+	table {
+		display: block;
+	}
+	/* 見出し行 */
+	table th {
+		display: none;
+	}
+	/* データから生成する行 */
+	table tr {
+		display: block;
+		border-bottom: #ddd 1px solid;
+	}
+	table tr td {
+		display: block;
+	}
+	table tr td:first-child {
+		padding: 10px;
+		background: #ededed;
+	}
+	table tr td:nth-child(2),
+	table tr td:nth-child(3) {
+		padding: 10px 10px 0 30px;	
+	}
+	table tr td:nth-child(n+4) {
+		display: inline-block;
+		border-bottom: none;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	table tr td:nth-child(4) {
+		padding-left: 30px;
+	}
+	table tr td:last-child {
+		padding-right: 10px;
+	}
+	tbody {
+		display: block;
+		width: 100%;
+	}
+	
+	/**
+	 * 05-04　データをフィルタする
+	 */
+	/* フィルタボタン全体のスタイル */
+	.wrapper-filter-btn {
+		padding: 20px 0;
+		height: 75px;
+	}
+	ul.filter-btn {
+		position: static;
+	}
+	ul.filter-btn li {
+		position: static;
+		margin: 0 1.6666666% 0 0;/* 1.6666666%=10px/600px */
+		width: 23.75%;/* 23.75%=142.5px/600px */
+		text-align: center;
+	}
+	ul.filter-btn li:last-child {
+		margin: 0;
+	}
+	ul.filter-btn li a {
+		padding: 45px 0 10px 0;
+		background-position: 50% 10px;
+		font-size: 0.8em;
+	}
+}
