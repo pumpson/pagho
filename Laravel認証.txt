@@ -1,0 +1,57 @@
+app/Http/Middleware/Authenticate.php
+protected function redirectTo($request)
+ログインしてないときのリダイレクト先
+
+
+# ログインに使う情報をメールアドレスから変更
+参考：
+http://program-memo.com/archives/646
+
+database/migrations/2014_10_12_000000_create_users_table.php
+//            $table->string('email')->unique();
+            $table->string('userid')->unique();
+            
+
+app/User.php
+        //'name', 'email', 'password',
+        'name', 'userid', 'password',
+
+
+
+app/Http/Controllers/Auth/LoginController.php
+注意：usernameというメソッドでなければ動かない
+    public function username()
+    {
+        //ここでユーザーログインの時に使うキー名を指定
+        return 'userid';
+    }
+
+app/Http/Controllers/Auth/RegisterController.php
+            //'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'userid' => ['required', 'string', 'min:5','max:12','alpha_num','unique:users'],
+
+//            'email' => $data['email'],
+            'userid' => $data['userid'],
+
+ログイン画面
+resources/views/auth/login.blade.php
+と新規登録画面
+resources/views/auth/register.blade.php
+を編集し、emailを参考にuseridの欄を追加する
+
+テーブルを作り直す
+php artisan migrate:refresh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
