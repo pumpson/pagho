@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="./imageCanvas.js"></script>
+</head>
+<body>
+<input type="text" name="name">
+<form enctype="multipart/form-data" action="postcatch.php" method="post">
+<div class="upload"><input type="file" name="beforepic1" id="beforepic1"></div>
+FileName: <span id="fileName">0</span>;
+FileSize: <span id="fileSize">0</span>;
+FileType: <span id="fileType">0</span>
+
+<div class="upload"><input type="file" name="beforepic1small" id="beforepic1small"></div>
+
+<fieldset>
+<legend>趣味</legend>
+<p><label><input type="checkbox" name="hobby" value="sports">スポーツ</label></p>
+<p><label><input type="checkbox" name="hobby" value="reading">読書</label></p>
+<p><label><input type="checkbox" name="hobby" value="music">音楽</label></p>
+<p><label><input type="checkbox" name="hobby" value="travel">旅行</label></p>
+</fieldset>
+
+<p><input type="submit" value="送信"><input type="reset" value="リセット"></p>
+</form>
+
+<canvas id="canvas"></canvas>
+<div id="result"></div>
+
+
+<script>
+var file = document.getElementById('beforepic1');
+var canvas = document.getElementById('canvas');
+var canvasWidth = 400;
+var canvasHeight = 300;
+//var uploadImgSrc;
+
+// Canvasの準備
+canvas.width = canvasWidth;
+canvas.height = canvasHeight;
+var ctx = canvas.getContext('2d');
+
+
+// ファイルが指定された時にloadLocalImage()を実行
+file.addEventListener('change', loadLocalImage, false);
+
+
+</script>
+    </body>
+</html>
