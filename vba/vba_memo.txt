@@ -1,0 +1,8 @@
+
+# 特定の範囲指定
+http://officetanaka.net/excel/vba/cell/cell10.htm
+任意のセルが含まれているひとかたまりのセル範囲
+Range("C8").CurrentRegion
+
+任意のセルから 最終セルまでの セル範囲
+Range(任意のセル, ActiveCell.SpecialCells(xlLastCell))
